@@ -20,7 +20,7 @@ var TaskService = (function () {
     TaskService.prototype.getinfo = function (info) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/api/write', info, { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('http://gpl-api.apps.reactive-solutions.xyz/api/write', info, { headers: headers }).map(function (res) { return res.json(); });
     };
     TaskService = __decorate([
         core_1.Injectable(), 

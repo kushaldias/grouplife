@@ -16,7 +16,8 @@ export class TaskService{
     var headers = new Headers();
     headers.append('Content-Type','application/json');
     
-    return this.http.post('http://localhost:3000/api/write', info,{headers:headers}).map(res => res.json());
+    return this.http.post('http://gpl-api.apps.reactive-solutions.xyz/api/write', 
+    info,{headers:headers}).map(res => res.json());
     
     }
     
