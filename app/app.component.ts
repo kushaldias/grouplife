@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {TaskService} from './services/task.service';
 import { User } from './user';
+import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 
 
 @Component({
@@ -11,6 +12,8 @@ moduleId: module.id,
 })
 export class AppComponent  {
 
+date: DateModel;
+options: DatePickerOptions;
 private values: string;
 private row1: string;
 private row2: string;
@@ -18,6 +21,8 @@ private row3: string;
 private row4: string;
 private row5: string;
 private row6: string;
+private row7: string;
+private row8: string;
 private dateob: string;
 private gen: string;
 private sal: string;
@@ -25,6 +30,7 @@ public showpremium: boolean;
 public showpremiumerr: boolean;
 
 constructor(private taskService:TaskService ){
+  this.options = new DatePickerOptions();
     }
 
 
@@ -53,8 +59,8 @@ submitt(){
         this.row4 = data.d;
         this.row5 = data.e;
         this.row6 = data.f;
-        //this.row7 = data.g;
-        //this.row8 = data.h;
+        this.row7 = data.g;
+        this.row8 = data.h;
         console.log(this.values);
         this.showpremium = true;
         this.showpremiumerr = false;

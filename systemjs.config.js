@@ -22,6 +22,9 @@
       '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+      "ng2-datepicker": 'npm:ng2-datepicker',
+      'ng2-slimscroll': 'npm:ng2-slimscroll', 
+      'moment': 'npm:moment', 
 
       // other libraries
       'rxjs':                      'npm:rxjs',
@@ -29,6 +32,9 @@
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
+      'ng2-datepicker': {  main: './ng2-datepicker.js', defaultExtension: 'js' },
+      'ng2-slimscroll': {  main: './ng2-slimscroll.js', defaultExtension: 'js' },
+      'moment': {  main: './moment.js', defaultExtension: 'js' },
       app: {
         main: './main.js',
         defaultExtension: 'js'

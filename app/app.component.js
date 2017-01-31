@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var task_service_1 = require('./services/task.service');
 var user_1 = require('./user');
+var ng2_datepicker_1 = require('ng2-datepicker');
 var AppComponent = (function () {
     function AppComponent(taskService) {
         this.taskService = taskService;
         this.model = new user_1.User('', '', '');
+        this.options = new ng2_datepicker_1.DatePickerOptions();
     }
     AppComponent.prototype.submitt = function () {
         var _this = this;
@@ -36,8 +38,8 @@ var AppComponent = (function () {
                 _this.row4 = data.d;
                 _this.row5 = data.e;
                 _this.row6 = data.f;
-                //this.row7 = data.g;
-                //this.row8 = data.h;
+                _this.row7 = data.g;
+                _this.row8 = data.h;
                 console.log(_this.values);
                 _this.showpremium = true;
                 _this.showpremiumerr = false;
