@@ -13,7 +13,9 @@
                 top: 120px;
             }
         </style>
-<p>This system is out only for testing purpose. please use with google chrome browser.</p>
+
+
+
 <div class="container">
             <div class="row row-centered pos">
                 <div class="col-lg-6 col-xs-12 col-centered">
@@ -25,7 +27,11 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3" for="dob">Date Of Birth:</label>
                             <div class="col-sm-9">
-                                <input [(ngModel)]="model.dob" #dob="ngModel" type="date" class="form-control" id="datepicker" name="dob" placeholder="mm/dd/yyyy" required>
+                                <input [(ngModel)]="model.dob" #dob="ngModel"  class="form-control date-picker-common"
+                                 id="datepicker" ng2-datetime-picker name="dob" placeholder="mm/dd/yyyy" required date-only="true" date-format="YYYY/MM/DD"
+      parse-format="YYYY-MM-DD" year="2014"
+      month="12"
+      day="31">
                                 <div *ngIf="dob.errors && (dob.dirty || dob.touched)" class="alert alert-danger">
                                     <small [hidden]="!dob.errors.required">
                                         dob is required
@@ -67,9 +73,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group"> 
+                        <div class="form-group" *ngIf="loading"> 
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary pull-right" [disabled]="!infoform.form.valid">Calculate</button>
+                                <button type="submit" class="btn btn-info pull-right" [disabled]="!infoform.form.valid">Calculate</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group" *ngIf="loadings"> 
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-primary pull-right"><i class="fa fa-spinner fa-spin"></i> Loading</button>
                             </div>
                         </div>
                         

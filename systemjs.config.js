@@ -25,6 +25,9 @@
       "ng2-datepicker": 'npm:ng2-datepicker',
       'ng2-slimscroll': 'npm:ng2-slimscroll', 
       'moment': 'npm:moment', 
+      'ng2-ui': 'https://npmcdn.com/ng2-ui',
+      'primeng': 'npm:primeng',
+      'ng2-datetime-picker': 'npm:ng2-datetime-picker/dist',
 
       // other libraries
       'rxjs':                      'npm:rxjs',
@@ -35,6 +38,9 @@
       'ng2-datepicker': {  main: './ng2-datepicker.js', defaultExtension: 'js' },
       'ng2-slimscroll': {  main: './ng2-slimscroll.js', defaultExtension: 'js' },
       'moment': {  main: './moment.js', defaultExtension: 'js' },
+      'ng2-ui': { main: 'dist/index.js', defaultExtension: 'js' },
+      'primeng':                    { defaultExtension: 'js' },
+      'ng2-datetime-picker':{ main: 'ng2-datetime-picker.umd.js', defaultExtension: 'js' },
       app: {
         main: './main.js',
         defaultExtension: 'js'

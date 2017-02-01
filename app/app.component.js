@@ -11,24 +11,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var task_service_1 = require('./services/task.service');
 var user_1 = require('./user');
+var dates_1 = require('./dates');
 var ng2_datepicker_1 = require('ng2-datepicker');
+core_1.enableProdMode();
 var AppComponent = (function () {
     function AppComponent(taskService) {
         this.taskService = taskService;
+        this.loading = true;
+        this.loadings = false;
         this.model = new user_1.User('', '', '');
+        this.model2 = new dates_1.Dates(null);
         this.options = new ng2_datepicker_1.DatePickerOptions();
     }
     AppComponent.prototype.submitt = function () {
         var _this = this;
+        this.loading = false;
+        this.loadings = true;
         this.dateob = this.model.dob;
         this.gen = this.model.gender;
         this.sal = this.model.salary;
+        console.log(this.dateob);
         var info = JSON.stringify({ dob: this.model.dob, gender: this.model.gender, salary: this.model.salary });
         this.taskService.getinfo(info).subscribe(function (data) {
             if (data == '888') {
                 _this.values = 'Invalid Age';
                 _this.showpremiumerr = true;
                 _this.showpremium = false;
+                _this.loading = true;
+                _this.loadings = false;
             }
             else {
                 _this.values = data.i;
@@ -43,6 +53,8 @@ var AppComponent = (function () {
                 console.log(_this.values);
                 _this.showpremium = true;
                 _this.showpremiumerr = false;
+                _this.loading = true;
+                _this.loadings = false;
             }
         });
     };

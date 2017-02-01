@@ -13,13 +13,14 @@ var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
 var ng2_datepicker_1 = require('ng2-datepicker');
+var ng2_datetime_picker_1 = require('ng2-datetime-picker');
 var app_component_1 = require('./app.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, ng2_datepicker_1.DatePickerModule],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, ng2_datepicker_1.DatePickerModule, ng2_datetime_picker_1.Ng2DatetimePickerModule],
             declarations: [app_component_1.AppComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 

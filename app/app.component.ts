@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, enableProdMode } from '@angular/core';
 import {TaskService} from './services/task.service';
 import { User } from './user';
+import { Dates } from './dates';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
-
+import {CalendarModule} from 'primeng/primeng';
+enableProdMode();
 
 @Component({
 moduleId: module.id,
@@ -28,6 +30,8 @@ private gen: string;
 private sal: string;
 public showpremium: boolean;
 public showpremiumerr: boolean;
+public loading: boolean = true;
+public loadings: boolean = false;
 
 constructor(private taskService:TaskService ){
   this.options = new DatePickerOptions();
@@ -35,12 +39,17 @@ constructor(private taskService:TaskService ){
 
 
   details:User[];
+  lol:Dates[];
   model = new User('', '', '');
+   model2 = new Dates(null);
     
 submitt(){
+  this.loading = false;
+  this.loadings = true;
     this.dateob = this.model.dob;
     this.gen = this.model.gender;
     this.sal = this.model.salary;
+    console.log(this.dateob);
     
     var info = JSON.stringify({dob : this.model.dob, gender: this.model.gender, salary: this.model.salary}); 
     this.taskService.getinfo(info).subscribe(data => {
@@ -49,6 +58,8 @@ submitt(){
         this.values = 'Invalid Age';
         this.showpremiumerr = true;
         this.showpremium = false;
+        this.loading = true;
+  this.loadings = false;
     }
     else
     {
@@ -64,9 +75,11 @@ submitt(){
         console.log(this.values);
         this.showpremium = true;
         this.showpremiumerr = false;
+        this.loading = true;
+  this.loadings = false;
     }
     });
-
+    
   }
 
 }
